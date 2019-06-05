@@ -44,7 +44,7 @@ export class AppComponent implements OnInit, OnDestroy {
   public activatedRoute: ActivatedRoute,
   public titleService: Title,
   private globalService: GlobalService,
-  private authService: AuthService
+  public authService: AuthService
   ) {
   }
 
