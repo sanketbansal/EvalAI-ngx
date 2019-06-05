@@ -77,6 +77,7 @@ import { SideBarComponent } from './components/utility/side-bar/side-bar.compone
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 
+import {PasswordMismatchValidatorDirective} from './Directives/password.validator';
 import { DashboardContentComponent } from './components/dashboard/dashboard-content/dashboard-content.component';
 @NgModule({
   declarations: [
@@ -125,6 +126,7 @@ import { DashboardContentComponent } from './components/dashboard/dashboard-cont
     RulesComponent,
     TestimonialsComponent,
     SideBarComponent,
+    PasswordMismatchValidatorDirective,
     DashFooterComponent,
     SimpleHeaderComponent,
     DashboardContentComponent,
