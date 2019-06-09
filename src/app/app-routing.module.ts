@@ -29,6 +29,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { OurTeamComponent } from './components/our-team/our-team.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import {ResetPasswordComponent} from './components/auth/reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,7 @@ const routes: Routes = [
     children: [
       {path: '', redirectTo: 'login', pathMatch: 'full'},
       {path: 'login', component: LoginComponent},
+      {path: 'reset-password', component: ResetPasswordComponent},
       {path: 'signup', component: SignupComponent},
       {path: 'verify-email/:token', component: VerifyEmailComponent},
       {path: '**', redirectTo: 'login'}
