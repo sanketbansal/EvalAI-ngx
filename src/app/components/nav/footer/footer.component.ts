@@ -14,6 +14,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class FooterComponent implements OnInit {
 
+  year: any;
+
   /**
    * Router local/public instance
    */
@@ -49,6 +51,8 @@ export class FooterComponent implements OnInit {
     if (!this.transparentHeaderUrls.includes(this.router.url)) {
       this.atHome = false;
     }
+
+    this.year = new Date().getFullYear();
   }
 
   /**
