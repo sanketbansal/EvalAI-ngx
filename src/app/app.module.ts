@@ -66,6 +66,7 @@ import { RulesComponent } from './components/home/rules/rules.component';
 import { TestimonialsComponent } from './components/home/testimonials/testimonials.component';
 import { FeaturedChallengesComponent } from './components/home/featured-challenges/featured-challenges.component';
 import { EditphasemodalComponent } from './components/challenge/challengephases/editphasemodal/editphasemodal.component';
+import { SimpleHeaderComponent } from './components/nav/simple-header/simple-header.component';
 
 @NgModule({
   declarations: [
@@ -113,6 +114,7 @@ import { EditphasemodalComponent } from './components/challenge/challengephases/
     PartnersComponent,
     RulesComponent,
     TestimonialsComponent,
+    SimpleHeaderComponent,
     FeaturedChallengesComponent,
     EditphasemodalComponent
   ],
