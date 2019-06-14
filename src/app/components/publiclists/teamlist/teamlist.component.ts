@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
+import {Component, OnInit, ViewChildren, QueryList, OnDestroy} from '@angular/core';
 import { ApiService } from '../../../services/api.service';
 import { GlobalService } from '../../../services/global.service';
 import { AuthService } from '../../../services/auth.service';
@@ -15,7 +15,7 @@ import { EndpointsService } from '../../../services/endpoints.service';
   templateUrl: './teamlist.component.html',
   styleUrls: ['./teamlist.component.scss']
 })
-export class TeamlistComponent implements OnInit {
+export class TeamlistComponent implements OnInit, OnDestroy {
 
   isnameFocused = false;
   isurlFocused = false;
@@ -29,6 +29,11 @@ export class TeamlistComponent implements OnInit {
    * Router public instance
    */
   routerPublic: any;
+
+  /**
+   * Authentication Service subscription
+   */
+  authServiceSubscription: any;
 
   /**
    * Team list
@@ -158,6 +163,13 @@ export class TeamlistComponent implements OnInit {
   ngOnInit() {
     this.authServicePublic = this.authService;
     this.routerPublic = this.router;
+
+    this.authServiceSubscription = this.authService.change.subscribe((authState) => {
+      if (!authState.isLoggedIn) {
+        this.router.navigate(['/auth/login']);
+      }
+    });
+
     if (this.router.url === '/teams/hosts') {
       this.isHost = true;
       this.fetchTeamsPath = 'hosts/challenge_host_team';
@@ -179,6 +191,12 @@ export class TeamlistComponent implements OnInit {
       this.teamCreateTitle = 'Create a New Participant Team';
       this.teamSelectTitle = 'My Existing Participant Teams';
       this.teamCreateButton = 'Create Participant Team';
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.authServiceSubscription) {
+      this.authServiceSubscription.unsubscribe();
     }
   }
 
