@@ -974,6 +974,40 @@ code {
   }
 }
 
+.btn-waves-effect {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  vertical-align: middle;
+  z-index: 1;
+  will-change: opacity, transform;
+  transition: .3s ease-out;
+}
+
+.grad-btn {
+  border-radius: 2px;
+}
+
+.grad-btn-dark {
+  background: #3c3e49;
+  font-weight: 400;
+  color: #fff;
+  box-shadow: 0 4px 8px $gray-dark;
+}
+
+.ev-btn-dark {
+  padding: 13px 33px 13px 33px;
+  border: none;
+  background: #252833;
+}
+
+.ev-btn-dark:hover {
+  background: #3c3e49;
+}
+
 .btn-fill {
   padding: 10px 30px 10px 30px;
   border: 1.5px solid white;

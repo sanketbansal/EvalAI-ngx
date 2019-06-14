@@ -222,6 +222,23 @@
 }
 
 
+/* media queries for rocket container */
+@media only screen and (max-width: $screen-sm-md) {
+
+  .input-group {	
+    width: 100% !important;
+  }
+
+  .input-group input {
+    width: 100% !important;
+  }
+
+  .input-group textarea {
+    width: 100% !important;
+  }
+}
+
+
 /* active state */
 
 .input-field:focus~.input-bar:before,
