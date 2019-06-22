@@ -32,17 +32,10 @@ export class AuthService {
 
   // default parameters
   isLoader = false;
-  isPassConf = true;
-  regMsg = '';
-  wrnMsg = {};
-  isValid = {};
-  confirmMsg = '';
   loaderTitle = '';
-  canShowPassword = false;
-  canShowConfirmPassword = false;
 
   /**
-   * Porting Ends
+   * Modifications Ends
    */
 
 
@@ -189,6 +182,14 @@ export class AuthService {
         () => console.log('Email Verified')
       );
     }
+
+
+
+
+
+  /**
+   * New Methods Added
+   */
 
   // show loader
   startLoader(msg) {
