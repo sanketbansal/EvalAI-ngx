@@ -1,34 +1,64 @@
-<div class="teamlist-container">
-  <div *ngIf="authServicePublic.isLoggedIn()">
-    <div class="card team-select">
-      <div class="card-title">
-        {{teamSelectTitle}}
-      </div>
-      <div class="card-content">
-        <app-cardlist [type]="'teams'" [data]="filteredTeams" [deleteTeam]="deleteTeamWrapper()" [editTeam]="editTeamWrapper()" [addMembersToTeam]="addMembersToTeamWrapper()" [selectTeam]="selectTeamWrapper()" [dataObservable]="filteredTeamsObservable"></app-cardlist>
-        <div class="see-more" *ngIf="filteredTeams.length < allTeams.length">
-          <a class="btn btn-filter" (click)="seeMoreClicked()">See More</a>
+<section class="ev-sm-container ev-view ">
+  <div class="row">
+    <div class="col s12 m6">
+      <div class=" ev-card-panel ev-z-depth-5">
+        <div class="ev-md-container ev-panel-title"><strong>{{teamSelectTitle}}</strong></div>
+        <!--app-loading></app-loading-->
+        <div class="ev-md-container ev-card-body exist-team-card">
+          <div *ngIf="allTeams.length === 0" class="page-msg">No team exists for now. Start by creating a new team!</div>
+          <ul class="collapsible" data-collapsible="accordion">
+            <app-teamcard *ngFor="let team of filteredTeams"
+                          [team]="team" [selected]="team['isSelected']" [isOnChallengePage]="isOnChallengePage"
+                          (deleteTeamCard)="deleteTeamWrapper()($event)" (editTeamCard)="editTeamWrapper()($event)" (addMembersTeamCard)="addMembersToTeamWrapper()($event)"
+            (selectTeamCard)="selectTeamWrapper()($event)">
+            </app-teamcard>
+          </ul>
+          <section class="pagination" *ngIf="allTeams.length !== 0">
+            <div class="row rm-gut">
+              <div class="col s12 m6 ">
+                <a [class.disabled]="seeMore <= 1" class="btn-floating btn-pagination waves-effect waves-light " (click)="seeLessClicked()">
+                  <i class="fa fa-chevron-left"></i>
+                </a>
+                <span class="pagination-title"> <strong class="text-med-black"> Page {{seeMore | number}} of {{allTeams.length/windowSize | number:'1.0-0'}} </strong></span>
+                <a [class.disabled]="seeMore*windowSize >= allTeams.length" class="btn-floating btn-pagination waves-effect waves-light " (click)="seeMoreClicked()">
+                  <i class="fa fa-chevron-right"></i>
+                </a>
+              </div>
+              <div class="align-right reg-control">
+                <button class="btn ev-btn-dark waves-effect waves-dark grad-btn grad-btn-dark fs-14" *ngIf="selectedTeam !== null && isHost == true" type="submit" value="Submit" (click)="createChallenge()">Next</button>
+                <button class="btn ev-btn-dark waves-effect waves-dark grad-btn grad-btn-dark fs-14" *ngIf="selectedTeam !== null && isOnChallengePage == true" type="submit" value="Submit" (click)="participateInChallenge()">Next</button>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
-      <div class="create-challenge" *ngIf="selectedTeam && routerPublic.url=='/teams/hosts'">
-          <a class="btn btn-filter selected" (click)="createChallenge()">Create Challenge</a>
-      </div>
-      <div class="create-challenge" *ngIf="selectedTeam && isOnChallengePage">
-          <a class="btn btn-filter selected" (click)="participateInChallenge()">Participate</a>
-      </div>
     </div>
-    <div class="card team-create">
-      <div class="card-title">
-        {{teamCreateTitle}}
-      </div>
-      <div class="card-content">
-        <div class="team-create-form">
-	        <app-input [label]="'team_name'" [placeholder]="'Team Name*'" [isRequired]="true" [theme]="'dark'" [icon]="'assets/images/username_dark.png'" #formteam></app-input>
-	        <app-input [label]="'team_url'" [placeholder]="'Team URL (Optional)'" [isRequired]="false" [theme]="'dark'" [icon]="'assets/images/link_dark.png'" #formteam></app-input>
-	        <span class="btn btn-filter selected" (click)="createTeam('formteam')">{{teamCreateButton}}</span>
+    <div class="col s12 m6">
+      <div class=" ev-card-panel ev-z-depth-5">
+        <div class="ev-md-container ev-panel-title"><strong>{{teamCreateTitle}}</strong></div>
+        <div class="ev-md-container ev-card-body new-team-card">
+          <form name="createTeamForm" #createTeamForm="ngForm" (ngSubmit)="createTeamSubmit(createTeamForm.valid)">
+            <div class="input-field align-left">
+              <input id="name" type="text" class="validate text-dark-black dark-autofill w-400" name="team_name"
+                     (focusin)="isnameFocused = true" (focusout)="isnameFocused = create_team['team_name'] !== ''"
+                     #teamName="ngModel" [(ngModel)]="create_team['team_name']" required>
+              <span class="form-icon form-icon-dark"><i class="fa fa-user"></i></span>
+              <label for="name" [class.active]="isnameFocused" data-error="wrong" data-success="right">Team Name*</label>
+              <div class="wrn-msg text-highlight" *ngIf="teamName.invalid && (teamName.dirty || teamName.touched || createTeamForm.submitted)">Team Name Required</div>
+            </div>
+            <div class="input-field align-left">
+              <input id="url" type="text" class="validate text-dark-black dark-autofill w-400" name="team_url"
+                     (focusin)="isurlFocused = true" (focusout)="isurlFocused = create_team['team_url'] !== ''"
+                     [(ngModel)]="create_team['team_url']" >
+              <span class="form-icon form-icon-dark"><i class="fa fa-link"></i></span>
+              <label for="url" [class.active]="isurlFocused" data-error="wrong" data-success="right">Team URL (Optional)</label>
+            </div>
+            <div class="align-left reg-control">
+              <button class="waves-effect waves-dark btn grad-btn ev-btn-dark w-300 fs-14" type="submit" value="Submit">{{teamCreateButton}}</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  <app-forcelogin [path]="routerPublic.url" *ngIf="!authServicePublic.isLoggedIn()"></app-forcelogin>
-</div>
+</section>
