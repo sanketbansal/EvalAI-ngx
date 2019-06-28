@@ -70,6 +70,7 @@ import { FeaturedChallengesComponent } from './components/home/featured-challeng
 import { DashFooterComponent } from './components/nav/dash-footer/dash-footer.component';
 import { SideBarComponent } from './components/utility/side-bar/side-bar.component';
 import { SimpleHeaderComponent } from './components/nav/simple-header/simple-header.component';
+import { AnalyticsComponent } from './components/analytics/analytics.component';
 import { EditphasemodalComponent } from './components/challenge/challengephases/editphasemodal/editphasemodal.component';
 import {
   ChallengeviewallsubmissionsComponent
@@ -135,6 +136,7 @@ import {EmailValidatorDirective} from './Directives/email.validator';
     DashFooterComponent,
     SimpleHeaderComponent,
     DashboardContentComponent,
+    AnalyticsComponent,
     FeaturedChallengesComponent,
     EditphasemodalComponent,
     ChallengeviewallsubmissionsComponent
