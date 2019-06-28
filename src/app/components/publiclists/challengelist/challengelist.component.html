@@ -49,7 +49,7 @@
   <div *ngIf="routerPublic.url === '/challenges/me'">
     <div class="challenge-page-title" id = "ongoing-challenges" ><strong class="text-med-black fs-18">My Hosted Challenges</strong></div>
     <div *ngIf="!filteredChallenges.length">
-      You haven't hosted any challenge. Please <a routerLink="/teams/host" class="highlight-link">click here</a> to host one!
+      You haven't hosted any challenge. Please <a routerLink="/teams/hosts" class="highlight-link">click here</a> to host one!
     </div>
     <div class="row" *ngIf="filteredChallenges.length">
       <div class="col s12 m3" *ngFor="let challenge of filteredChallenges">

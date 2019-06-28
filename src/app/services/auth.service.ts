@@ -34,6 +34,22 @@ export class AuthService {
   isLoader = false;
   loaderTitle = '';
 
+  isMail = true;
+  // getUser for signup
+  regUser = {};
+  // useDetails for login
+  getUser = {};
+  // color to show password strength
+  color = {};
+  // form error
+  isFormError = false;
+  FormError = {};
+  regMsg = '';
+  wrnMsg = {};
+  isValid = {};
+  deliveredMsg = '';
+  canShowPassword = false;
+  canShowConfirmPassword = false;
   /**
    * Modifications Ends
    */
