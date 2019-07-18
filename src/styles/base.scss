@@ -390,7 +390,7 @@ mat-chip {
 }
 
 .bottom-card-container {
-	padding: 40px;
+  padding: 40px;
 }
 
 .card-bt-margin {
@@ -480,7 +480,7 @@ ul {
   color: #fff;
   box-shadow: 0px 4px 8px $gray-dark;
   &:hover {
-      box-shadow: 0px 0px 8px $gray-dark;
+    box-shadow: 0px 0px 8px $gray-dark;
   }
 }
 
@@ -515,9 +515,9 @@ ul {
   border: 1px solid $med-gray !important;
   box-shadow: 0px 4px 8px transparent;
   &:hover {
-      box-shadow: 0px 0px 8px $gray-dark !important;
-      background: $med-gray !important;
-      color: #fff;
+    box-shadow: 0px 0px 8px $gray-dark !important;
+    background: $med-gray !important;
+    color: #fff;
   }
 }
 
@@ -748,8 +748,8 @@ ul {
 /* media queries for rocket container */
 @media only screen and (max-width: $screen-sm-md) {
 
-  .rocket-container {	
-    display:none;	
+  .rocket-container {
+    display:none;
   }
 }
 
@@ -934,19 +934,19 @@ code {
   border: 1px solid white;
   color: white;
   @include box-shadow(0px,
-  0px,
-  5px,
-  0px,
-  $overlay-light);
+    0px,
+    5px,
+    0px,
+    $overlay-light);
   &:hover {
     background: $gray-light;
     border: 1px solid $gray-light;
     color: black;
     @include box-shadow(0px,
-    0px,
-    10px,
-    0px,
-    $overlay-light);
+      0px,
+      10px,
+      0px,
+      $overlay-light);
   }
 }
 
@@ -955,57 +955,23 @@ code {
   border: none;
   color: white;
   @include linear-gradient-bg(-90deg,
-  $fire-right,
-  $fire-left);
+    $fire-right,
+    $fire-left);
   @include box-shadow(0px,
-  0px,
-  5px,
-  0px,
-  $overlay-light);
-  &:hover {
-    @include linear-gradient-bg(-90deg,
-    $fire-left,
-    $fire-right);
-    @include box-shadow(0px,
     0px,
-    10px,
+    5px,
     0px,
     $overlay-light);
+  &:hover {
+    @include linear-gradient-bg(-90deg,
+      $fire-left,
+      $fire-right);
+    @include box-shadow(0px,
+      0px,
+      10px,
+      0px,
+      $overlay-light);
   }
-}
-
-.btn-waves-effect {
-  position: relative;
-  cursor: pointer;
-  display: inline-block;
-  overflow: hidden;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-  vertical-align: middle;
-  z-index: 1;
-  will-change: opacity, transform;
-  transition: .3s ease-out;
-}
-
-.grad-btn {
-  border-radius: 2px;
-}
-
-.grad-btn-dark {
-  background: #3c3e49;
-  font-weight: 400;
-  color: #fff;
-  box-shadow: 0 4px 8px $gray-dark;
-}
-
-.ev-btn-dark {
-  padding: 13px 33px 13px 33px;
-  border: none;
-  background: #252833;
-}
-
-.ev-btn-dark:hover {
-  background: #3c3e49;
 }
 
 .btn-fill {
@@ -1014,16 +980,16 @@ code {
   background: white;
   color: $blue-dark;
   @include box-shadow(0px,
-  0px,
-  5px,
-  0px,
-  $overlay-light);
-  &:hover {
-    @include box-shadow(0px,
     0px,
-    10px,
+    5px,
     0px,
     $overlay-light);
+  &:hover {
+    @include box-shadow(0px,
+      0px,
+      10px,
+      0px,
+      $overlay-light);
     border: 1.5px solid $gray-light;
     background: $gray-light;
     color: black;
@@ -1039,9 +1005,9 @@ code {
     border: 1px solid $med-gray;
     box-shadow: 0px 4px 8px transparent;
     &:hover {
-        box-shadow: 0px 0px 8px #9d9d9d;
-        background: $med-gray;
-        color: #fff;
+      box-shadow: 0px 0px 8px #9d9d9d;
+      background: $med-gray;
+      color: #fff;
     }
   }
 }
@@ -1059,10 +1025,10 @@ code {
   font-size: $fs-16;
   overflow: auto;
   @include box-shadow(0px,
-  0px,
-  5px,
-  0px,
-  $overlay-light);
+    0px,
+    5px,
+    0px,
+    $overlay-light);
   hr {
     border-top: 1px solid $overlay-light;
     border-bottom: 0px;
@@ -1072,10 +1038,10 @@ code {
     background: white;
     &.selected {
       @include box-shadow(0px,
-      0px,
-      10px,
-      1px,
-      $overlay-light);
+        0px,
+        10px,
+        1px,
+        $overlay-light);
     }
   }
   .card-title {
@@ -1113,10 +1079,10 @@ code {
   z-index: 100;
   .modal-card {
     @include box-shadow(0px,
-    0px,
-    5px,
-    0px,
-    $overlay-light);
+      0px,
+      5px,
+      0px,
+      $overlay-light);
     border-radius: 10px;
     background: white;
     position: fixed;
