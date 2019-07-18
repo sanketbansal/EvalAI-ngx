@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { TextareaAutosizeModule } from 'ngx-textarea-autosize';
 import {EmailValidator, FormsModule} from '@angular/forms';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { TextareaAutosizeModule } from 'ngx-textarea-autosize';
@@ -142,7 +141,7 @@ import { ResetPasswordConfirmComponent } from './components/auth/reset-password-
     FeaturedChallengesComponent,
     AnalyticsComponent,
     HostAnalyticsComponent,
-    ResetPasswordConfirmComponent
+    ResetPasswordConfirmComponent,
     EditphasemodalComponent,
     ChallengeviewallsubmissionsComponent
   ],
