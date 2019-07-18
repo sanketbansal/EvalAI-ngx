@@ -24,6 +24,7 @@ body {
   letter-spacing: 0.1px;
   font-size: 15px;
   color: rgba(0, 0, 0, 0.87);
+  flex: 1;
 }
 
 .go {
@@ -104,18 +105,6 @@ body {
 
 .mb-10 {
   margin-bottom: 10px;
-}
-
-
-/** Pad and margin*/
-.row-lr-margin {
-  margin-left: 0px;
-  margin-right: 0px;
-}
-
-.col-lr-pad {
-  padding-left: 12px;
-  padding-right: 12px;
 }
 
 
@@ -388,6 +377,10 @@ mat-chip {
 .ev-md-container {
   padding: 30px 40px 40px 40px;
 }
+
+//.ev-md-container {
+//  padding: 40px;
+//}
 
 .bottom-card-container {
   padding: 40px;
@@ -1200,8 +1193,20 @@ td, th {
   line-height: 40px;
 }
 
+/*pagination*/
+
 .btn-pagination {
-  background-color: $yellow;
+  background-color: $highlight;
+  i {
+    font-size: 16px;
+  }
+}
+
+.btn-pagination:hover {
+  background-color: $highlight;
+  i {
+    font-size: 16px;
+  }
 }
 
 .btn.disabled, .btn-floating.disabled, .btn-floating:disabled {
