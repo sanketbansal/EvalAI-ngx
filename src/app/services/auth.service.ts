@@ -15,22 +15,7 @@ export class AuthService {
    * Modifications in Auth Services
    */
   isAuth = false;
-  isMail = true;
-  userMail = '';
-  // getUser for signup
-  regUser = {};
-  // useDetails for login
-  getUser = {};
-  // color to show password strength
-  color = {};
   isResetPassword = false;
-  // form error
-  isFormError = false;
-  FormError = {};
-  // to store the next redirect route
-  redirectUrl = {};
-
-  // default parameters
   isLoader = false;
   loaderTitle = '';
 
@@ -50,9 +35,7 @@ export class AuthService {
   deliveredMsg = '';
   canShowPassword = false;
   canShowConfirmPassword = false;
-  /**
-   * Modifications Ends
-   */
+
 
 
   /**
