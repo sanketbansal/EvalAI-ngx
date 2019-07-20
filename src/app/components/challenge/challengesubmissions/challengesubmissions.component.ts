@@ -1,12 +1,16 @@
-import { Component, OnInit, QueryList, ViewChildren, ViewChild, AfterViewInit } from '@angular/core';
-import { AuthService } from '../../../services/auth.service';
-import { ApiService } from '../../../services/api.service';
-import { WindowService } from '../../../services/window.service';
-import { GlobalService } from '../../../services/global.service';
-import { ChallengeService } from '../../../services/challenge.service';
-import { EndpointsService } from '../../../services/endpoints.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { SelectphaseComponent } from '../../utility/selectphase/selectphase.component';
+import {Component, OnInit, QueryList, ViewChildren, ViewChild, AfterViewInit} from '@angular/core';
+import {AuthService} from '../../../services/auth.service';
+import {ApiService} from '../../../services/api.service';
+import {WindowService} from '../../../services/window.service';
+import {GlobalService} from '../../../services/global.service';
+import {ChallengeService} from '../../../services/challenge.service';
+import {EndpointsService} from '../../../services/endpoints.service';
+import {Router, ActivatedRoute} from '@angular/router';
+import {SelectphaseComponent} from '../../utility/selectphase/selectphase.component';
+
+import {Observable} from 'rxjs';
+import {animate, state, style, transition, trigger} from '@angular/animations';
+
 
 /**
  * Component Class
@@ -14,9 +18,38 @@ import { SelectphaseComponent } from '../../utility/selectphase/selectphase.comp
 @Component({
   selector: 'app-challengesubmissions',
   templateUrl: './challengesubmissions.component.html',
-  styleUrls: ['./challengesubmissions.component.scss']
+  styleUrls: ['./challengesubmissions.component.scss'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class ChallengesubmissionsComponent implements OnInit, AfterViewInit {
+
+// {
+//   'challenge_phase': 17,
+//   'created_by': 2,
+//   'execution_time': "None",
+//   'id': 2.
+//   'input_file': "http://localhost:8000/media/submission_files/submission_2/d4a3356f-9737-47a5-adba-4134c3c56b64.json"
+//   'is_baseline': false,
+//   'is_public': false,
+//   'method_description': "",
+//   'method_name': "blaablaasub",
+//   'participant_team': 13,
+//   'participant_team_name': "Host_28919_Team"
+//   'project_url': "",
+//   'publication_url': "",
+//   'status': "submitted",
+//   'stderr_file': null,
+//   'stdout_file': null,
+//   'submission_result_file': null
+//   'submitted_at': "2019-07-08T18:35:37.679030Z"
+//   'when_made_public': null
+// }
 
   /**
    * Phase select card components
@@ -123,6 +156,10 @@ export class ChallengesubmissionsComponent implements OnInit, AfterViewInit {
    */
   apiCall: any;
 
+  columnsToDisplay = ['status', 'stderr_file', 'stdout_file', 'submission_result_file'];
+
+  expandedElement: null;
+
   /**
    * Constructor.
    * @param route  ActivatedRoute Injection.
@@ -135,7 +172,8 @@ export class ChallengesubmissionsComponent implements OnInit, AfterViewInit {
    */
   constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute,
               private challengeService: ChallengeService, private globalService: GlobalService, private apiService: ApiService,
-              private windowService: WindowService, private endpointsService: EndpointsService) { }
+              private windowService: WindowService, private endpointsService: EndpointsService) {
+  }
 
   /**
    * Component after view initialized.
@@ -148,6 +186,7 @@ export class ChallengesubmissionsComponent implements OnInit, AfterViewInit {
    * Component on initialized.
    */
   ngOnInit() {
+
     if (this.authService.isLoggedIn()) {
       this.isLoggedIn = true;
     }
@@ -343,7 +382,8 @@ export class ChallengesubmissionsComponent implements OnInit, AfterViewInit {
       const SELF = this;
       const BODY = JSON.stringify({is_public: is_public});
       this.apiService.patchUrl(API_PATH, BODY).subscribe(
-        data => {},
+        data => {
+        },
         err => {
           SELF.globalService.handleApiError(err);
         },

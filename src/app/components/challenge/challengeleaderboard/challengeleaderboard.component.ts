@@ -128,11 +128,14 @@ export class ChallengeleaderboardComponent implements OnInit, AfterViewInit {
     this.routerPublic = this.router;
     this.challengeService.currentChallenge.subscribe(challenge => {
       this.challenge = challenge;
+      console.log('Challenge leaderboard', this.challenge);
     });
+
     this.challengeService.currentPhases.subscribe(
       phases => {
         this.phases = phases;
         this.filterPhases();
+        console.log('Leaderboard Phases', this.phases);
     });
     this.challengeService.currentPhaseSplit.subscribe(
       phaseSplits => {
@@ -319,6 +322,7 @@ export class ChallengeleaderboardComponent implements OnInit, AfterViewInit {
     const SELF = this;
     this.apiService.getUrl(API_PATH).subscribe(
       data => {
+        console.log(data);
         SELF.updateLeaderboardResults(data['results'], SELF);
       },
       err => {

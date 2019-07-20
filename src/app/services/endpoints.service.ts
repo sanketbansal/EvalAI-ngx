@@ -135,6 +135,14 @@ export class EndpointsService {
   }
 
   /**
+   * Disable Challenge for a given challenge id
+   * @param id  challenge id
+   */
+  challengeDisableURL(id) {
+    return `${this.challenges}${this.challenge}${id}/disable`;
+  }
+
+  /**
    * Challenge participate url for a given challenge id
    * @param id  challenge id
    * @param team  team id
@@ -158,6 +166,15 @@ export class EndpointsService {
    */
   updateChallengePhaseDetailsURL(id, phaseId) {
     return `${this.challenges}${this.challenge}${id}/challenge_phase/${phaseId}`;
+  }
+
+  /**
+   * Challenge phase for a given challenge id
+   * @param challenge  challenge id
+   * @param phase  phase id
+   */
+  challengePhaseUpdateURL(challenge, phase) {
+    return `${this.challengePhaseURL(challenge)}/${phase}`;
   }
 
   /**

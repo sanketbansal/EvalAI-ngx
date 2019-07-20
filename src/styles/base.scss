@@ -5,6 +5,7 @@
 @import './grid.scss';
 @import './font.scss';
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 body {
   font-family: 'Roboto', sans-serif;

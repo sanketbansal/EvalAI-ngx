@@ -68,6 +68,9 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 align-right">
+                      <mat-checkbox *ngIf="isChallengeHost" (click)="submissionPublic()" >Submission Public</mat-checkbox>
+                      <mat-checkbox *ngIf="isChallengeHost" (click)="disableChallenge()" >Disable Challenge</mat-checkbox>
+                      <mat-checkbox *ngIf="isChallengeHost" (click)="stopParticipation()" >Disable Challenge</mat-checkbox>
                         <button class="stars btn-waves-effect grad-rec-btn
                             grad-btn-dark ev-btn-dark fw-light fs-14"
                             type="submit" [class.is-clickable]="isLoggedIn"

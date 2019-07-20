@@ -76,7 +76,14 @@ import {
 import { SideBarComponent } from './components/utility/side-bar/side-bar.component';
 import { DashFooterComponent } from './components/nav/dash-footer/dash-footer.component';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatIconModule } from '@angular/material/icon';
+
+
+//  Import Angular Material Components
+import { MatCheckboxModule } from '@angular/material';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatTableModule} from '@angular/material/table';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -142,11 +149,16 @@ import { MatIconModule } from '@angular/material/icon';
     FroalaViewModule.forRoot(),
     TextareaAutosizeModule,
     OwlDateTimeModule,
-    OwlNativeDateTimeModule,
+    // Material Module
+    MatCheckboxModule,
+    MatExpansionModule,
+    MatTableModule,
+    MatDividerModule,
+    MatIconModule,
     MatSelectModule,
     MatChipsModule,
     MatMenuModule,
-    MatIconModule
+    OwlNativeDateTimeModule,
   ],
   providers: [
     AuthService,

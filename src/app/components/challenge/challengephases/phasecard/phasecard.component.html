@@ -27,6 +27,8 @@
 						<br> <strong class="fs-14 phase-value">{{phase['max_submissions']}}</strong></p>
 				</div>
 			</div>
+      <mat-checkbox *ngIf="isChallengeHost" (click)="toggleLeaderboard()" [(ngModel)]="isLeaderboardPublic">LeaderBoard</mat-checkbox>
+      <mat-checkbox class="submisssion" *ngIf="isChallengeHost && isLeaderboardPublic" (click)="toggleSubmission()" [(ngModel)]="isSubmissionPublic">Submissions</mat-checkbox>
 		</div>
 		<div *ngIf="isChallengeHost" class="col-sm-1 col-xs-2 col-lr-pad">
 			<a class="pointer" (click)="editChallengePhase()">

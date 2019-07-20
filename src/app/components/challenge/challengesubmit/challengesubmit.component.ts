@@ -348,6 +348,22 @@ export class ChallengesubmitComponent implements OnInit {
           }, 1000);
           SELF.countDownTimer(SELF, eachPhase);
         }
+        console.log('remaining_submissions', data);
+
+        let data_phases: any[];
+        data_phases = data['phases'];
+        data_phases.forEach( (item, index) => {
+          if (item['id'] === phase) {
+            SELF.selectedPhaseSubmissions = item['limits'];
+          }
+        });
+
+        // if (data['remaining_submissions']) {
+        //   SELF.selectedPhaseSubmissions = data;
+        // } else if (data['message']) {
+        //   SELF.selectedPhaseSubmissions['remaining_submissions_today_count'] = 0;
+        //   SELF.globalService.showToast('info', data['message']);
+        // }
       },
       err => {
         SELF.globalService.handleApiError(err);
