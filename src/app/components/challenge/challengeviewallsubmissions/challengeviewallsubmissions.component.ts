@@ -124,6 +124,10 @@ export class ChallengeviewallsubmissionsComponent implements OnInit, AfterViewIn
    */
   apiCall: any;
 
+  columnsToDisplay = ['status', 'stderr_file', 'stdout_file', 'submission_result_file'];
+
+  expandedElement: null;
+
   /**
    * Constructor.
    * @param route  ActivatedRoute Injection.

@@ -33,9 +33,9 @@
   margin-bottom: 20px;
 }
 
-table {
-  width: 160% !important;
-}
+//table {
+//  width: 160% !important;
+//}
 
 .cbx-label {
   margin-left: 55px;
@@ -44,4 +44,85 @@ table {
 
 .cbx:checked ~ .cbx-label {
   background: #4CAF50;
+}
+
+.example-detail-row {
+  height: 0;
+  overflow: hidden;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  td {
+    color: #efefef;
+  }
+  background: #252833;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  font-weight: 400;
+}
+
+.example-expanded-row {
+  margin-top: 24px;
+  margin-bottom: 14px;
+}
+
+.example-elements {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.example-elements-detail {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: lightgrey;
+
+  padding-right: 80px;
+}
+
+.example-elements-action {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+}
+
+.example-element {
+  margin-bottom: 10px;
+}
+
+.example-element-description {
+  margin-left: 10px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}
+
+@include screen-small {
+  .example-elements {
+    flex-direction: column;
+  }
+  .example-elements-action {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+  .example-elements-detail {
+    border-right-style: none;
+    padding-right: 0;
+
+    border-bottom-style: solid;
+    border-bottom-color: lightgrey;
+    border-bottom-width: 1px;
+    padding-bottom: 20px;
+  }
 }
